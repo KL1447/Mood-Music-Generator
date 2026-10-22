@@ -1,3 +1,92 @@
-# Mood-Music-Generator
-Type a feeling (happy, calm or nervous) and the code makes a short piece of music that fits it. The music is a little different every time.
-TunePad project:https://tunepad.com/project/134311#code
+# Mood Music Generator
+> Type a feeling (happy, calm or nervous) and the code makes a short piece of music that fits it. The music is a little different every time.
+> Live demo [_here_](https://tunepad.com/project/134311#code). <!-- If you have the project hosted somewhere, include the link here. -->
+
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+* [Screenshots](#screenshots)
+* [Setup](#setup)
+* [Usage](#usage)
+* [Project Status](#project-status)
+* [Room for Improvement](#room-for-improvement)
+* [Acknowledgements](#acknowledgements)
+* [Contact](#contact)
+<!-- * [License](#license) -->
+
+
+## General Information
+- Many people find it hard to put their feelings into words, and music therapy is hard to start because it needs training and tools. This project lets anyone "hear" a feeling by turning an emotion word into music with a few lines of Python.
+- What problem does it (intend to) solve?
+- What is the purpose of your project?
+- Why did you undertake it?
+<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+
+
+## Technologies Used
+- TunePad, a free website for making music with code. No installation is needed. It runs in the browser.
+- Python, as built into TunePad (TunePad's Python is a smaller version of normal Python).
+- Python's random module (comes with TunePad, nothing to install).
+
+
+
+## Features
+List the ready features here:
+- Awesome feature 1
+- Awesome feature 2
+- Awesome feature 3
+
+
+## Screenshots
+TunePad Keyboard cell with the code:
+<img width="1440" height="777" alt="Screenshot 2026-10-22 at 2 06 40 pm" src="https://github.com/user-attachments/assets/bb4d917e-2921-4cdb-b120-baeabd092e81" />
+TunePad Drums cell with the same code, set to drums:
+<img width="1440" height="777" alt="Screenshot 2026-10-22 at 2 11 17 pm" src="https://github.com/user-attachments/assets/c7ed45e6-35ba-42ac-99d3-b177fb0ddc41" />
+
+
+## Setup
+What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
+
+Proceed to describe how to install / setup one's local environment / get started with the project.
+
+
+## Usage
+How does one go about using it?
+Provide various use cases and code examples here.
+
+`write-your-code-here`
+
+
+## Project Status
+Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+
+
+## Room for Improvement
+Include areas you believe need improvement / could be improved. Also add TODOs for future development.
+
+Room for improvement:
+- Improvement to be done 1
+- Improvement to be done 2
+
+To do:
+- Feature to be added 1
+- Feature to be added 2
+
+
+## Acknowledgements
+Give credit here.
+- This project was inspired by...
+- This project was based on [this tutorial](https://www.example.com).
+- Many thanks to...
+
+
+## Contact
+Created by [Kaiduan.Liu@student.uts.edu.au](https://www.flynerd.pl/) - feel free to contact me!
+
+
+<!-- Optional -->
+<!-- ## License -->
+<!-- This project is open source and available under the [... License](). -->
+
+<!-- You don't have to include all sections - just the one's relevant to your project -->
