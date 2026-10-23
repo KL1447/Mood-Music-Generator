@@ -40,14 +40,22 @@ List the ready features here:
 TunePad Keyboard cell with the code:
 <img width="1440" height="777" alt="Screenshot 2026-10-22 at 2 06 40 pm" src="https://github.com/user-attachments/assets/bb4d917e-2921-4cdb-b120-baeabd092e81" />
 TunePad Drums cell with the same code, set to drums:
-<img width="1440" height="777" alt="Screenshot 2026-10-22 at 2 11 17 pm" src="https://github.com/user-attachments/assets/c7ed45e6-35ba-42ac-99d3-b177fb0ddc41" />
+<![Uploading Screenshot 2026-10-24 at 7.09.45 am.png…]>
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
+The code must run inside TunePad, because it uses TunePad's playNote() and rest() functions. It will not run in a normal Python window.
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
+1. Go to tunepad.com and sign in (a free account is needed to save a project).
+2. Open the project link, or make a new project.
+3. Click ADD CELL and choose a Keyboard (Piano) cell.
+4. Click in the code box, select everything (Cmd+A or Ctrl+A) and delete it.
+5. Open final/week10_final., copy the whole file, and paste it into the cell.
+6. Press the play triangle next to the cell name.
+7. Read the line printed in the console: Set the TunePad project tempo to ... BPM. Type that number into the bpm box at the top of the page (see the table in Usage).
+8. Press play again to hear the music at the right speed.
 
+To add drums: click ADD CELL again and choose Drums. Paste the same file. In this cell only, change CELL = "melody" to CELL = "drums". Use the same EMOTION in both cells, then press the big play button at the top right to hear both cells together.
 
 ## Usage
 How does one go about using it?
