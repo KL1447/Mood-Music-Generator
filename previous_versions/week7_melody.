@@ -1,0 +1,6 @@
+melody = [60, 62, 64, 65, 67, 65, 64, 62]
+
+for note in melody:
+    playNote(note, beats=0.5)
+
+playNote(60, beats=4)
