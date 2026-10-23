@@ -1,0 +1,57 @@
+import random
+
+EMOTION = "happy"
+
+emotion = EMOTION.strip().lower()
+
+if emotion == "happy":
+    scale = [60, 62, 64, 65, 67, 69, 71, 72]
+    beat_options = [0.5, 0.5, 0.25, 1]
+    low_velocity = 80
+    high_velocity = 110
+    rest_chance = 5
+    bpm = 124
+elif emotion == "calm":
+    scale = [60, 62, 64, 67, 69, 72]
+    beat_options = [1, 2, 1, 0.5]
+    low_velocity = 50
+    high_velocity = 70
+    rest_chance = 20
+    bpm = 68
+elif emotion == "nervous":
+    scale = [60, 61, 63, 66, 67, 70, 72]
+    beat_options = [0.25, 0.25, 0.5, 0.125]
+    low_velocity = 55
+    high_velocity = 120
+    rest_chance = 30
+    bpm = 150
+else:
+    print("I don't know the feeling '" + EMOTION + "' - using calm.")
+    emotion = "calm"
+    scale = [60, 62, 64, 67, 69, 72]
+    beat_options = [1, 2, 1, 0.5]
+    low_velocity = 50
+    high_velocity = 70
+    rest_chance = 20
+    bpm = 68
+
+print("Emotion: " + emotion)
+print("Set the TunePad project tempo to " + str(bpm) + " BPM")
+
+total_beats = 8
+beats_played = 0
+
+while beats_played < total_beats:
+    beats = beat_options[random.randint(0, len(beat_options) - 1)]
+
+    if beats_played + beats > total_beats:
+        beats = total_beats - beats_played
+
+    if random.randint(1, 100) <= rest_chance:
+        rest(beats)
+    else:
+        note = scale[random.randint(0, len(scale) - 1)]
+        velocity = random.randint(low_velocity, high_velocity)
+        playNote(note, beats=beats, velocity=velocity)
+
+    beats_played = beats_played + beats
