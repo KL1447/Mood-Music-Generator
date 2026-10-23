@@ -18,9 +18,7 @@
 
 ## General Information
 - Many people find it hard to put their feelings into words, and music therapy is hard to start because it needs training and tools. This project lets anyone "hear" a feeling by turning an emotion word into music with a few lines of Python.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
+
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
@@ -33,9 +31,9 @@
 
 ## Features
 List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Three emotions: happy, calm and nervous. Each one has its own notes, note lengths, loudness and speed.
+- Different music every time, because notes, rhythm, rests and loudness are chosen at random inside the limits of each emotion.
+- A drum pattern (kick and hi-hat) in a second cell, using the same file.
 
 
 ## Screenshots
