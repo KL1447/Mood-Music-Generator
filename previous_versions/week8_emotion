@@ -1,0 +1,28 @@
+EMOTION = "happy"
+
+emotion = EMOTION.strip().lower()
+
+if emotion == "happy":
+    notes = [60, 64, 67, 72, 67, 64, 67, 60]
+    beat_length = 0.5
+    bpm = 124
+elif emotion == "calm":
+    notes = [60, 62, 64, 67, 69, 67, 64, 62]
+    beat_length = 1
+    bpm = 68
+elif emotion == "nervous":
+    notes = [60, 61, 63, 66, 67, 66, 63, 61]
+    beat_length = 0.25
+    bpm = 150
+else:
+    print("I don't know the feeling '" + EMOTION + "' - using calm.")
+    emotion = "calm"
+    notes = [60, 62, 64, 67, 69, 67, 64, 62]
+    beat_length = 1
+    bpm = 68
+
+print("Emotion: " + emotion)
+print("Set the TunePad project tempo to " + str(bpm) + " BPM")
+
+for note in notes:
+    playNote(note, beats=beat_length)
