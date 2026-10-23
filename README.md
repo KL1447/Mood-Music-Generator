@@ -40,7 +40,7 @@ List the ready features here:
 TunePad Keyboard cell with the code:
 <img width="1440" height="777" alt="Screenshot 2026-10-22 at 2 06 40 pm" src="https://github.com/user-attachments/assets/bb4d917e-2921-4cdb-b120-baeabd092e81" />
 TunePad Drums cell with the same code, set to drums:
-<>
+<![Uploading Screenshot 2026-10-24 at 7.09.45 am.png…]()>
 
 
 ## Setup
