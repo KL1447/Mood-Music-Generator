@@ -33,7 +33,7 @@
 List the ready features here:
 - Three emotions: happy, calm and nervous. Each one has its own notes, note lengths, loudness and speed.
 - Different music every time, because notes, rhythm, rests and loudness are chosen at random inside the limits of each emotion.
-- A drum pattern (kick and hi-hat) in a second cell, using the same file.
+- A drum pattern (kick and hi-hat) in a second cell, using the same file. The pattern is random too, so it changes every time.
 
 
 ## Screenshots
@@ -59,34 +59,53 @@ The code must run inside TunePad, because it uses TunePad's playNote() and rest(
 To add drums: click ADD CELL again and choose Drums. Paste the same file. In this cell only, change CELL = "melody" to CELL = "drums". Use the same EMOTION in both cells, then press the big play button at the top right to hear both cells together.
 
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
+Only two lines near the top of week10_final. need to be changed:
 
-`write-your-code-here`
 
+`EMOTION = "happy"
+CELL = "melody"`
+
+- EMOTION can be "happy", "calm" or "nervous". It picks the music style.
+- CELL can be "melody" or "drums". Use "melody" in a Keyboard cell and "drums" in a Drums cell.
+
+Set the tempo by hand in the bpm box at the top of TunePad, because TunePad cannot set the speed from code:
+
+- happy: 124 BPM. Listen for bright, short, lively notes.
+- calm: 68 BPM. Listen for slow, soft, long notes.
+- nervous: 150 BPM. Listen for fast, jumpy notes and a tense ending.
+
+Run it a few times with the same emotion. The tune should change each time but keep the same mood. Each clip is 8 beats (2 bars) long.
+
+If the drum sounds are wrong, change the numbers 0 (kick) and 5 (hi-hat) in the play_drums() function to match your drum kit.
+
+## How the Code Works
+- Choosing the emotion. EMOTION.strip().lower() cleans the word. An if / elif / else block then sets the notes, note lengths, loudness, rest chance and BPM for that emotion.
+- Making it random. A while loop keeps adding notes until 8 beats are filled. random.randint() picks the note length, whether to rest, and the loudness.
+- Making it smooth. Each new note moves 0 to 2 steps up or down the list of allowed notes instead of jumping anywhere.
+- Ending. The last note comes from the template. It is the home note for happy and calm, and a tense note for nervous.
+- Drums. play_drums() goes through the steps one by one. Even steps can play a kick and odd steps can play a hi-hat. Each hit has a random chance to play, and its loudness is random too, so the drum pattern is different every time. The first kick always plays so the beat has a clear start.
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
-
+Finished as a prototype for the assessment (Weeks 7 to 10). The drum numbers may need small changes for a different drum kit.
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
 
 Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
+- Check the drum numbers (kick 0, hi-hat 5) on more drum kits
+- Let the user type the emotion while the program runs, instead of changing a line in the code
 
 To do:
-- Feature to be added 1
-- Feature to be added 2
+- Add more emotions, such as angry or sad
+- Make longer pieces with a bass line or chords that match the melody
 
 
 ## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
-
+- This project was inspired by the TunePad tutorials, especially [Chicago house beat](https://learn.tunepad.com/tutorials/chicago-house/) (drum sound numbers: kick 0, hi-hat 5) and [Loopy hip-hop beat](https://learn.tunepad.com/curriculum/activities/livecode-hiphop/) (playing drum sounds in a loop).
+- This project was based on [TunePad documentation](https://tunepad.com/docs) for `playNote()`, `rest()` and the idea that notes are numbers (60 is middle C), and on [Notes and melody](https://learn.tunepad.com/curriculum/activities/livecode-notes/) for playing a melody from note numbers.
+- `random.randint()` comes from the [Python random module](https://docs.python.org/3/library/random.html).
+- This README was written with the help of the [README cheatsheet](https://github.com/ritaly/README-cheatsheet) and [How to write a good README for your GitHub project](https://bulldogjob.com/readme/how-to-write-a-good-readme-for-your-github-project).
+- The emotion templates, the `if / elif / else` logic, the random note picker, the smooth "random walk", the endings and the drum pattern were written for this project.
+- Many thanks to my tutor and classmates in tutorial Sem1.
 
 ## Contact
 Created by [Kaiduan.Liu@student.uts.edu.au](https://www.flynerd.pl/) - feel free to contact me!
