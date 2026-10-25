@@ -19,11 +19,11 @@
 ## General Information
 - Many people find it hard to put their feelings into words, and music therapy is hard to start because it needs training and tools. This project lets anyone "hear" a feeling by turning an emotion word into music with a few lines of Python.
 
-* Week 7: TunePad basics and a simple tune that plays one note at a time (`week7_melody.py`).
-* Week 8: `if / elif / else` to choose the music from an emotion word (`week8_emotion_if.py`).
-* Week 9: the `random` module and three emotion templates (`week9_random_templates.py`).
-* Week 10: a smoother tune, a fitting ending note, and a drum pattern (`week10_final.py`).
-* Week 11: two more feelings (angry and sad), a bass cell and an arpeggio cell (`week11_final.py`).
+* Week 7: TunePad basics and a simple tune that plays one note at a time (`week7_melody`).
+* Week 8: `if / elif / else` to choose the music from an emotion word (`week8_emotion_if`).
+* Week 9: the `random` module and three emotion templates (`week9_random_templates`).
+* Week 10: a smoother tune, a fitting ending note, and a drum pattern (`week10_smooth_drums`).
+* Week 11: two more feelings (angry and sad), a bass cell and an arpeggio cell (`week11_final`).
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
@@ -37,9 +37,11 @@
 
 ## Features
 List the ready features here:
-- Three emotions: happy, calm and nervous. Each one has its own notes, note lengths, loudness and speed.
+- Five emotions: happy, calm, nervous, angry and sad. Each one has its own notes, note lengths, loudness and speed.
 - Different music every time, because notes, rhythm, rests and loudness are chosen at random inside the limits of each emotion.
 - A drum pattern (kick and hi-hat) in a second cell, using the same file. The pattern is random too, so it changes every time.
+- A bass line in a third cell, using the same file. It plays low notes that fit the feeling and changes every time.
+- An arpeggio ("arp") line in a fourth cell, using the same file. It plays the notes of a chord one after another, in the middle range between the bass and the melody.
 
 
 ## Screenshots
@@ -47,6 +49,10 @@ TunePad Keyboard cell with the code:
 <img width="1440" height="777" alt="Screenshot 2026-10-22 at 2 06 40 pm" src="https://github.com/user-attachments/assets/bb4d917e-2921-4cdb-b120-baeabd092e81" />
 TunePad Drums cell with the same code, set to drums:
 <img width="1440" height="777" alt="Screenshot 2026-10-25 at 5 59 02 am" src="https://github.com/user-attachments/assets/a205a21c-483e-45cb-b439-bf567e731f83" />
+TunePad Bass cell with the same code, set to bass:
+<img width="1440" height="777" alt="Screenshot 2026-10-26 at 7 58 05 am" src="https://github.com/user-attachments/assets/a2a12062-ae00-4988-9920-2fbb41cd535a" />
+TunePad Arp cell with the same code, set to arp:
+<img width="1440" height="777" alt="Screenshot 2026-10-26 at 8 00 19 am" src="https://github.com/user-attachments/assets/7e6aee6b-7873-401b-b160-e4efdfb5c263" />
 
 
 
