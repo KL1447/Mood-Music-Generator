@@ -17,6 +17,10 @@ if emotion == "happy":
     kick_chance = 90
     bass_notes = [36, 43, 40]
     bass_step = 1
+    arp_notes = [48, 52, 55, 60]
+    arp_step = 0.5
+    arp_low = 60
+    arp_high = 85
     bpm = 124
 elif emotion == "calm":
     scale = [60, 62, 64, 67, 69, 72]
@@ -30,6 +34,10 @@ elif emotion == "calm":
     kick_chance = 80
     bass_notes = [36, 43, 40]
     bass_step = 2
+    arp_notes = [48, 52, 55, 59]
+    arp_step = 1
+    arp_low = 40
+    arp_high = 55
     bpm = 68
 elif emotion == "nervous":
     scale = [60, 61, 63, 66, 67, 70, 72]
@@ -43,6 +51,10 @@ elif emotion == "nervous":
     kick_chance = 70
     bass_notes = [36, 42, 37]
     bass_step = 0.5
+    arp_notes = [48, 51, 54, 57]
+    arp_step = 0.25
+    arp_low = 55
+    arp_high = 85
     bpm = 150
 elif emotion == "angry":
     scale = [60, 63, 65, 66, 67, 70, 72]
@@ -56,6 +68,10 @@ elif emotion == "angry":
     kick_chance = 95
     bass_notes = [36, 39, 41]
     bass_step = 0.5
+    arp_notes = [48, 51, 55, 58]
+    arp_step = 0.5
+    arp_low = 80
+    arp_high = 105
     bpm = 140
 elif emotion == "sad":
     scale = [60, 62, 63, 65, 67, 68, 70]
@@ -69,6 +85,10 @@ elif emotion == "sad":
     kick_chance = 60
     bass_notes = [36, 39, 44]
     bass_step = 2
+    arp_notes = [48, 51, 55, 60]
+    arp_step = 1
+    arp_low = 35
+    arp_high = 50
     bpm = 60
 else:
     print("I don't know the feeling '" + EMOTION + "' - using calm.")
@@ -84,6 +104,10 @@ else:
     kick_chance = 80
     bass_notes = [36, 43, 40]
     bass_step = 2
+    arp_notes = [48, 52, 55, 59]
+    arp_step = 1
+    arp_low = 40
+    arp_high = 55
     bpm = 68
 
 total_beats = 8
@@ -147,9 +171,22 @@ def play_bass():
             playNote(note, beats=bass_step, velocity=velocity)
 
 
+def play_arp():
+    steps = int(total_beats / arp_step)
+    for i in range(steps):
+        velocity = random.randint(arp_low, arp_high)
+        if i == 0 or i == steps - 1:
+            playNote(arp_notes[0], beats=arp_step, velocity=velocity)
+        else:
+            note = arp_notes[random.randint(0, len(arp_notes) - 1)]
+            playNote(note, beats=arp_step, velocity=velocity)
+
+
 if CELL == "drums":
     play_drums()
 elif CELL == "bass":
     play_bass()
+elif CELL == "arp":
+    play_arp()
 else:
     play_melody()
