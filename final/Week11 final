@@ -1,0 +1,155 @@
+import random
+
+EMOTION = "happy"
+CELL = "melody"
+
+emotion = EMOTION.strip().lower()
+
+if emotion == "happy":
+    scale = [60, 62, 64, 65, 67, 69, 71, 72]
+    beat_options = [0.5, 0.5, 0.25, 1]
+    low_velocity = 80
+    high_velocity = 110
+    rest_chance = 5
+    end_index = 0
+    drum_step = 0.5
+    hat_chance = 85
+    kick_chance = 90
+    bass_notes = [36, 43, 40]
+    bass_step = 1
+    bpm = 124
+elif emotion == "calm":
+    scale = [60, 62, 64, 67, 69, 72]
+    beat_options = [1, 2, 1, 0.5]
+    low_velocity = 50
+    high_velocity = 70
+    rest_chance = 20
+    end_index = 0
+    drum_step = 1
+    hat_chance = 40
+    kick_chance = 80
+    bass_notes = [36, 43, 40]
+    bass_step = 2
+    bpm = 68
+elif emotion == "nervous":
+    scale = [60, 61, 63, 66, 67, 70, 72]
+    beat_options = [0.25, 0.25, 0.5, 0.125]
+    low_velocity = 55
+    high_velocity = 120
+    rest_chance = 30
+    end_index = 1
+    drum_step = 0.25
+    hat_chance = 85
+    kick_chance = 70
+    bass_notes = [36, 42, 37]
+    bass_step = 0.5
+    bpm = 150
+elif emotion == "angry":
+    scale = [60, 63, 65, 66, 67, 70, 72]
+    beat_options = [0.5, 0.25, 0.5, 0.25]
+    low_velocity = 95
+    high_velocity = 127
+    rest_chance = 10
+    end_index = 0
+    drum_step = 0.5
+    hat_chance = 90
+    kick_chance = 95
+    bass_notes = [36, 39, 41]
+    bass_step = 0.5
+    bpm = 140
+elif emotion == "sad":
+    scale = [60, 62, 63, 65, 67, 68, 70]
+    beat_options = [1, 2, 1, 1]
+    low_velocity = 40
+    high_velocity = 65
+    rest_chance = 25
+    end_index = 0
+    drum_step = 1
+    hat_chance = 25
+    kick_chance = 60
+    bass_notes = [36, 39, 44]
+    bass_step = 2
+    bpm = 60
+else:
+    print("I don't know the feeling '" + EMOTION + "' - using calm.")
+    emotion = "calm"
+    scale = [60, 62, 64, 67, 69, 72]
+    beat_options = [1, 2, 1, 0.5]
+    low_velocity = 50
+    high_velocity = 70
+    rest_chance = 20
+    end_index = 0
+    drum_step = 1
+    hat_chance = 40
+    kick_chance = 80
+    bass_notes = [36, 43, 40]
+    bass_step = 2
+    bpm = 68
+
+total_beats = 8
+
+print("Emotion: " + emotion + " | cell: " + CELL)
+print("Set the TunePad project tempo to " + str(bpm) + " BPM")
+
+
+def play_melody():
+    beats_played = 0
+    index = 0
+
+    while beats_played < total_beats:
+        beats = beat_options[random.randint(0, len(beat_options) - 1)]
+        if beats_played + beats > total_beats:
+            beats = total_beats - beats_played
+
+        is_last = (beats_played + beats >= total_beats)
+
+        if is_last:
+            playNote(scale[end_index], beats=beats, velocity=high_velocity)
+        elif beats_played > 0 and random.randint(1, 100) <= rest_chance:
+            rest(beats)
+        else:
+            index = index + random.randint(-2, 2)
+            if index < 0:
+                index = 0
+            if index > len(scale) - 1:
+                index = len(scale) - 1
+
+            velocity = random.randint(low_velocity, high_velocity)
+            playNote(scale[index], beats=beats, velocity=velocity)
+
+        beats_played = beats_played + beats
+
+
+def play_drums():
+    steps = int(total_beats / drum_step)
+    for i in range(steps):
+        if i % 2 == 0:
+            if i == 0 or random.randint(1, 100) <= kick_chance:
+                playNote(0, beats=drum_step, velocity=random.randint(85, 110))
+            else:
+                rest(drum_step)
+        elif random.randint(1, 100) <= hat_chance:
+            playNote(5, beats=drum_step, velocity=random.randint(45, 70))
+        else:
+            rest(drum_step)
+
+
+def play_bass():
+    steps = int(total_beats / bass_step)
+    for i in range(steps):
+        velocity = random.randint(70, 100)
+        if i == steps - 1:
+            playNote(bass_notes[end_index], beats=bass_step, velocity=velocity)
+        elif i == 0:
+            playNote(bass_notes[0], beats=bass_step, velocity=velocity)
+        else:
+            note = bass_notes[random.randint(0, len(bass_notes) - 1)]
+            playNote(note, beats=bass_step, velocity=velocity)
+
+
+if CELL == "drums":
+    play_drums()
+elif CELL == "bass":
+    play_bass()
+else:
+    play_melody()
