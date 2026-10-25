@@ -1,5 +1,5 @@
 # Mood Music Generator
-> Type a feeling (happy, calm or nervous) and the code makes a short piece of music that fits it. The music is a little different every time.
+> Type a feeling (happy, calm or nervous, angry or sad) and the code makes a short piece of music that fits it. The music is a little different every time.
 > Live demo [_here_](https://tunepad.com/project/135156#code). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
@@ -18,6 +18,12 @@
 
 ## General Information
 - Many people find it hard to put their feelings into words, and music therapy is hard to start because it needs training and tools. This project lets anyone "hear" a feeling by turning an emotion word into music with a few lines of Python.
+
+* Week 7: TunePad basics and a simple tune that plays one note at a time (`week7_melody.py`).
+* Week 8: `if / elif / else` to choose the music from an emotion word (`week8_emotion_if.py`).
+* Week 9: the `random` module and three emotion templates (`week9_random_templates.py`).
+* Week 10: a smoother tune, a fitting ending note, and a drum pattern (`week10_final.py`).
+* Week 11: two more feelings (angry and sad), a bass cell and an arpeggio cell (`week11_final.py`).
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
