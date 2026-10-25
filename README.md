@@ -62,33 +62,42 @@ The code must run inside TunePad, because it uses TunePad's playNote() and rest(
 1. Go to tunepad.com and sign in (a free account is needed to save a project).
 2. Open the project link, or make a new project.
 3. Click ADD CELL and choose a Keyboard (Piano) cell.
-4. Click in the code box, select everything (Cmd+A or Ctrl+A) and delete it.
-5. Open final/week10_final., copy the whole file, and paste it into the cell.
+4. Click in the code box, select everything and delete it.
+5. Open final/week11 final, copy the whole file, and paste it into the cell.
 6. Press the play triangle next to the cell name.
 7. Read the line printed in the console: Set the TunePad project tempo to ... BPM. Type that number into the bpm box at the top of the page (see the table in Usage).
 8. Press play again to hear the music at the right speed.
 
-To add drums: click ADD CELL again and choose Drums. Paste the same file. In this cell only, change CELL = "melody" to CELL = "drums". Use the same EMOTION in both cells, then press the big play button at the top right to hear both cells together.
+To add drums: click ADD CELL again and choose Drums. Paste the same file. In this cell only, change CELL = "melody" to CELL = "drums".
+
+To add a bass line: click ADD CELL again and choose Bass. Paste the same file. In this cell only, change CELL = "melody" to CELL = "bass".
+
+To add an arpeggio line: click ADD CELL again and choose Keyboard (or any other instrument you like). Paste the same file. In this cell only, change CELL = "melody" to CELL = "arp".
+
+Use the same EMOTION in all cells, then press the big play button at the top right to hear them together.
+
 
 ## Usage
-Only two lines near the top of week10_final. need to be changed:
+Only two lines near the top of week11 final need to be changed:
 
 
 `EMOTION = "happy"
 CELL = "melody"`
 
-- EMOTION can be "happy", "calm" or "nervous". It picks the music style.
-- CELL can be "melody" or "drums". Use "melody" in a Keyboard cell and "drums" in a Drums cell.
+- EMOTION can be "happy", "calm", "nervous", "angry" or "sad". It picks the music style.
+- CELL can be "melody", "drums", "bass" or "arp". Use "melody" in a Keyboard cell, "drums" in a Drums cell, "bass" in a Bass cell and "arp" in a second Keyboard cell (or any instrument you like).
 
 Set the tempo by hand in the bpm box at the top of TunePad, because TunePad cannot set the speed from code:
 
 - happy: 124 BPM. Listen for bright, short, lively notes.
 - calm: 68 BPM. Listen for slow, soft, long notes.
 - nervous: 150 BPM. Listen for fast, jumpy notes and a tense ending.
+- angry: 140 BPM. Listen for loud, hard, short notes and a heavy beat.
+- sad: 60 BPM. Listen for very slow, quiet, long notes with gaps between them.
 
 Run it a few times with the same emotion. The tune should change each time but keep the same mood. Each clip is 8 beats (2 bars) long.
 
-If the drum sounds are wrong, change the numbers 0 (kick) and 5 (hi-hat) in the play_drums() function to match your drum kit.
+If the drum sounds are wrong, change the numbers 0 (kick) and 5 (hi-hat) in the play_drums() function to match your drum kit. If the bass line sounds too high or too low, change the numbers in bass_notes (36 is a low C). The same works for arp_notes in the arp cell.
 
 ## How the Code Works
 - Choosing the emotion. EMOTION.strip().lower() cleans the word. An if / elif / else block then sets the notes, note lengths, loudness, rest chance and BPM for that emotion.
@@ -96,19 +105,21 @@ If the drum sounds are wrong, change the numbers 0 (kick) and 5 (hi-hat) in the 
 - Making it smooth. Each new note moves 0 to 2 steps up or down the list of allowed notes instead of jumping anywhere.
 - Ending. The last note comes from the template. It is the home note for happy and calm, and a tense note for nervous.
 - Drums. play_drums() goes through the steps one by one. Even steps can play a kick and odd steps can play a hi-hat. Each hit has a random chance to play, and its loudness is random too, so the drum pattern is different every time. The first kick always plays so the beat has a clear start.
+- Bass. play_bass() plays one low note for each step. The first note is always the home note. The other notes are picked at random from bass_notes, and the last note comes from end_index (a tense note for nervous). The loudness is random too.
+- Arpeggio. play_arp() plays one chord note for each step. The first and last notes are always the first note of the chord. The notes in between are picked at random from arp_notes, with a random loudness. Each feeling has its own chord: bright for happy, soft for calm, tense for nervous, hard for angry and dark for sad.
+- New feelings. Angry and sad are two more templates in the if / elif / else block. Angry uses a blues-style scale, loud notes and a fast beat. Sad uses a minor scale, quiet long notes and a slow beat.
 
 ## Project Status
-Finished as a prototype for the assessment (Weeks 7 to 10). The drum numbers may need small changes for a different drum kit.
-
+Finished as a prototype for the assessment (Weeks 7 to 11). The drum and bass numbers may need small changes for a different TunePad instrument.
 ## Room for Improvement
 
 Room for improvement:
-- Check the drum numbers (kick 0, hi-hat 5) on more drum kits
+- Check the drum numbers (kick 0, hi-hat 5) and the bass notes on more TunePad instruments
 - Let the user type the emotion while the program runs, instead of changing a line in the code
 
 To do:
-- Add more emotions, such as angry or sad
-- Make longer pieces with a bass line or chords that match the melody
+- Add more emotions, such as excited or lonely
+- Make longer pieces, and add chords that match the melody
 
 
 ## Acknowledgements
@@ -116,7 +127,7 @@ To do:
 - This project was based on [TunePad documentation](https://tunepad.com/docs) for `playNote()`, `rest()` and the idea that notes are numbers (60 is middle C), and on [Notes and melody](https://learn.tunepad.com/curriculum/activities/livecode-notes/) for playing a melody from note numbers.
 - `random.randint()` comes from the [Python random module](https://docs.python.org/3/library/random.html).
 - This README was written with the help of the [README cheatsheet](https://github.com/ritaly/README-cheatsheet) and [How to write a good README for your GitHub project](https://bulldogjob.com/readme/how-to-write-a-good-readme-for-your-github-project).
-- The emotion templates, the `if / elif / else` logic, the random note picker, the smooth "random walk", the endings and the drum pattern were written for this project.
+- The emotion templates, the if / elif / else logic, the random note picker, the smooth "random walk", the endings, the drum pattern, the bass line, the arpeggio line and the angry and sad templates were written for this project.
 - Many thanks to my tutor and classmates in tutorial Sem1.
 
 ## Contact
