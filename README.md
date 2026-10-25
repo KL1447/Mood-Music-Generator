@@ -1,6 +1,6 @@
 # Mood Music Generator
 > Type a feeling (happy, calm or nervous) and the code makes a short piece of music that fits it. The music is a little different every time.
-> Live demo [_here_](https://tunepad.com/project/134311#code). <!-- If you have the project hosted somewhere, include the link here. -->
+> Live demo [_here_](https://tunepad.com/project/135156#code). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [General Info](#general-information)
