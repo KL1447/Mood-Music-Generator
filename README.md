@@ -21,7 +21,7 @@
 
 * Week 7: TunePad basics and a simple tune that plays one note at a time (`week7_melody`).
 * Week 8: `if / elif / else` to choose the music from an emotion word (`week8_emotion`).
-* Week 9: the `random` module and three emotion templates (`week9_random_templates`).
+* Week 9: the `random` module and three emotion templates (`week9_random templates`).
 * Week 10: a smoother tune, a fitting ending note, and a drum pattern (`week10_smooth_drums`).
 * Week 11: two more feelings (angry and sad), a bass cell and an arpeggio cell (`week11_final`).
 
